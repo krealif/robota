@@ -24,7 +24,7 @@
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item py-2 py-sm-0">
-                <a href="#" class="btn btn-primary ms-sm-2 w-100 w-lg-auto">Login</a>
+                <a href="#" class="btn btn-primary ms-sm-2">Login</a>
               </li>
             </ul>
         </div>
