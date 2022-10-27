@@ -1,4 +1,4 @@
-<nav class="navbar bg-white navbar-expand-sm sticky-top">
+<nav class="navbar bg-white navbar-expand-sm sticky-top shadow-sm">
     <div class="container-xl">
         <a class="navbar-brand d-inline-flex align-items-center" href="#">
             <img src="assets/images/site/robota-logo.svg" alt="Robota Logo" height="18">
