@@ -1,6 +1,22 @@
 hr {
-    background-color: $gray-400;
-    border-color: $gray-400;
+    background-color: $gray-300;
+    border-color: $gray-300;
+    margin: 0;
+    border-width: 2px;
+}
+
+.card-hr {
+    border-color: $orange-300;
+    background-color: $orange-300;
+}
+
+.bg-light-primary {
+    background-color: #FDF0E6;
+}
+
+.ul-pricing {
+    list-style-type: none;
+    padding: 0;
     margin: 0;
 }
 

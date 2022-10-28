@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fontbit.io" crossorigin>
     <link rel="stylesheet" href="https://fontbit.io/css2?family=Roboto+Flex:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Robota</title>
     @vite(['resources/js/app.js'])
 </head>

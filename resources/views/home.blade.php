@@ -7,7 +7,7 @@
             <div class="row justify-content-md-center">
                 <div class="col-md-9 col-sm-11 text-md-center">
                     <div class="mx-md-auto" style="max-width: 42rem">
-                        <h1 class="fw-bold text-white display-4 mb-8">The best way to know your hotel’s performance</h1>
+                        <h1 class="fw-bold text-white display-4 mb-8">The best way to know your hotel's performance</h1>
                     </div>
                     <a href="#" class="btn btn-primary btn-lg w-100 w-sm-auto">Get started</a>
                 </div>
