@@ -1,7 +1,7 @@
 <section class="container-xl py-12">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 text-center">
-            <h2 class="fw-semibold fs-3 m-0">Trusted by world class hotels</h2>
+            <h2 class="fw-bold fs-3 m-0">Trusted by world class hotels</h2>
         </div>
     </div>
     <div class="row gap-6 mt-8 justify-content-center">

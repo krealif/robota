@@ -6,8 +6,8 @@
         <div class="container-xl">
             <div class="row justify-content-md-center">
                 <div class="col-md-9 col-sm-11 text-md-center">
-                    <div class="mx-md-auto" style="max-width: 40rem">
-                        <h1 class="fw-semibold text-white display-4 mb-8">The best way to know your hotel’s performance</h1>
+                    <div class="mx-md-auto" style="max-width: 42rem">
+                        <h1 class="fw-bold text-white display-4 mb-8">The best way to know your hotel’s performance</h1>
                     </div>
                     <a href="#" class="btn btn-primary btn-lg w-100 w-sm-auto">Get started</a>
                 </div>
@@ -24,7 +24,7 @@
     <section class="container-xl py-12">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-6 text-md-center">
-                <h2 class="fw-semibold fs-3 m-0">Discover the key features</h2>
+                <h2 class="fw-bold fs-3 m-0">Discover the key features</h2>
                 <p class="text-muted mt-2 mb-0">Powerful, self-serve product and growth analytics to help you convert, engage, and retain more customers. Trusted by many world class hotels.</p>
             </div>
         </div>

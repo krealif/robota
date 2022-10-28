@@ -1,5 +1,5 @@
 // Typography
-$font-family-sans-serif: 'Roboto', ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-sans-serif: 'Roboto Flex', ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
 // Color
 $min-contrast-ratio: 3;
@@ -22,6 +22,7 @@ $gray-900: #0f172a;
 $navbar-padding-y: .75rem;
 $navbar-toggler-padding-x: 0;
 $navbar-toggler-font-size: 16px;
+$nav-link-font-weight: 600;
 $navbar-toggler-border-radius: 0;
 $navbar-toggler-focus-width: 0rem;
 $navbar-light-toggler-border-color: transparent;
@@ -29,6 +30,9 @@ $navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3
 $navbar-light-color: $gray-500;
 $navbar-light-hover-color: $gray-800;
 $navbar-light-active-color:  $gray-900;
+
+// Button
+$btn-font-weight: 600;
 
 // Container
 $container-padding-x: 3rem;
