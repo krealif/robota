@@ -5,19 +5,19 @@
         </div>
     </div>
     <div class="row gap-6 mt-8 justify-content-center">
-        <div class="col-lg-2 col-sm-3 col-6 px-2 text-center">
+        <div class="col-lg-2 col-sm-3 col-4 px-2 text-center">
             <img class="img-fluid" style="max-height: 2.5rem" src="assets/images/site/company1.png" alt="">
         </div>
-        <div class="col-lg-2 col-sm-3 col-6 px-2 text-center">
+        <div class="col-lg-2 col-sm-3 col-4 px-2 text-center">
             <img class="img-fluid" style="max-height: 2.5rem" src="assets/images/site/company2.png" alt="">
         </div>
-        <div class="col-lg-2 col-sm-3 col-6 px-2 text-center">
+        <div class="col-lg-2 col-sm-3 col-4 px-2 text-center">
             <img class="img-fluid" style="max-height: 2.5rem" src="assets/images/site/company3.png" alt="">
         </div>
-        <div class="col-lg-2 col-sm-3 col-6 px-2 text-center">
+        <div class="col-lg-2 col-sm-3 col-4 px-2 text-center">
             <img class="img-fluid" style="max-height: 2.5rem" src="assets/images/site/company4.png" alt="">
         </div>
-        <div class="col-lg-2 col-sm-3 col-6 px-2 text-center">
+        <div class="col-lg-2 col-sm-3 col-4 px-2 text-center">
             <img class="img-fluid" style="max-height: 2.5rem" src="assets/images/site/company5.png" alt="">
         </div>
     </div>
