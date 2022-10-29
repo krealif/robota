@@ -64,7 +64,7 @@
                         <div class="d-flex align-items-center gap-4">
                             <img class="rounded-circle" style="width: 2.5rem" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="">
                             <div>
-                                <span class="d-block fw-semibold">Lana Byrd</span>
+                                <span class="d-block fw-semibold">Jesse Leos</span>
                                 <span class="d-block text-muted fs-6">CEO at Orange</span>
                             </div>
                         </div>

@@ -5,19 +5,18 @@ hr {
     border-width: 2px;
 }
 
-.card-hr {
-    border-color: $orange-300;
-    background-color: $orange-300;
-}
-
 .bg-light-primary {
     background-color: #FDF0E6;
 }
 
-.ul-pricing {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.bg-light-primary hr {
+    border-color: $orange-300;
+    background-color: $orange-300;
+}
+
+.bi {
+    min-width: 24px;
+    max-width: 24px;
 }
 
 // Small devices (landscape phones, 576px and up)

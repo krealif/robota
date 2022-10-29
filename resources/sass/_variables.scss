@@ -59,4 +59,11 @@ $spacers: (
   32: $spacer * 8,
 );
 
+// Card
 $card-border-width: 0;
+
+// Accordion
+$accordion-border-width: 0;
+$accordion-bg: $gray-100;
+$accordion-button-active-bg: $gray-100;
+$accordion-button-active-color: $gray-900;
