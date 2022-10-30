@@ -14,7 +14,7 @@ class Accordion extends Component
 
     public function __construct($heading, $body)
     {
-        $this->id = "id_".Str::random(9);
+        $this->id = "id".Str::random(8);
         $this->heading = $heading;
         $this->body = $body;
 

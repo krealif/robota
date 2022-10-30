@@ -95,39 +95,31 @@
         </div>
     </div>
     <div class="row g-6 mt-6">
-        <div class="col-6 accordion">
+        <div class="col-6 d-flex flex-column gap-6">
             <x-accordion
                 heading="Can I change my plan later?"
                 body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
             </x-accordion>
-        </div>
-        <div class="col-6 accordion">
             <x-accordion
-                heading="Can I change my plan later?"
+                heading="How does billing work?"
+                body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
+            </x-accordion>
+            <x-accordion
+                heading="Is my payment secure?"
                 body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
             </x-accordion>
         </div>
-        <div class="col-6 accordion">
+        <div class="col-6 d-flex flex-column gap-6">
             <x-accordion
-                heading="Can I change my plan later?"
+                heading="Is there a free trial available?"
                 body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
             </x-accordion>
-        </div>
-        <div class="col-6 accordion">
             <x-accordion
-                heading="Can I change my plan later?"
+                heading="How do I change my account email?"
                 body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
             </x-accordion>
-        </div>
-        <div class="col-6 accordion">
             <x-accordion
-                heading="Can I change my plan later?"
-                body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
-            </x-accordion>
-        </div>
-        <div class="col-6 accordion">
-            <x-accordion
-                heading="Can I change my plan later?"
+                heading="Can I upgrade to another pricing plan?"
                 body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
             </x-accordion>
         </div>
