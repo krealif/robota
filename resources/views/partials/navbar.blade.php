@@ -18,10 +18,10 @@
                 <a class="nav-link" href="/pricing">Pricing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="/contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="/about">About</a>
               </li>
               <li class="nav-item py-2 py-sm-0">
                 <a href="/login" class="btn btn-primary ms-sm-2 w-100 w-md-auto">Login</a>

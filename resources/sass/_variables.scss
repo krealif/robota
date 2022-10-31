@@ -1,14 +1,15 @@
 // Typography
-$font-family-sans-serif: 'Roboto Flex', ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-sans-serif: "Roboto Flex", ui-sans-serif, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
 
 // Color
 $min-contrast-ratio: 3;
-$orange: #E86C00;
-$blue: #1755E8;
+$orange: #e86c00;
+$blue: #1755e8;
 $primary: $orange;
 $secondary: $blue;
 
-$gray-100: #F3F7FE;
+$gray-100: #f3f7fe;
 $gray-200: #e2e8f0;
 $gray-300: #cbd5e1;
 $gray-400: #94a3b8;
@@ -19,7 +20,7 @@ $gray-800: #1e293b;
 $gray-900: #0f172a;
 
 // Navbar
-$navbar-padding-y: .75rem;
+$navbar-padding-y: 0.75rem;
 $navbar-toggler-padding-x: 0;
 $navbar-toggler-font-size: 16px;
 $nav-link-font-weight: 600;
@@ -29,7 +30,7 @@ $navbar-light-toggler-border-color: transparent;
 $navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path d='M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z'/></svg>");
 $navbar-light-color: $gray-500;
 $navbar-light-hover-color: $gray-800;
-$navbar-light-active-color:  $gray-900;
+$navbar-light-active-color: $gray-900;
 
 // Button
 $btn-font-weight: 600;
@@ -40,23 +41,23 @@ $container-padding-x: 3rem;
 // Spacing
 $spacer: 1rem;
 $spacers: (
-  0: 0,
-  1: $spacer * 0.25,
-  2: $spacer * 0.5,
-  3: $spacer * 0.75,
-  4: $spacer,
-  5: $spacer * 1.25,
-  6: $spacer * 1.5,
-  7: $spacer * 1.75,
-  8: $spacer * 2,
-  10: $spacer * 2.5,
-  12: $spacer * 3,
-  14: $spacer * 3.5,
-  16: $spacer * 4,
-  18: $spacer * 4.5,
-  20: $spacer * 5,
-  24: $spacer * 6,
-  32: $spacer * 8,
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer * 0.75,
+    4: $spacer,
+    5: $spacer * 1.25,
+    6: $spacer * 1.5,
+    7: $spacer * 1.75,
+    8: $spacer * 2,
+    10: $spacer * 2.5,
+    12: $spacer * 3,
+    14: $spacer * 3.5,
+    16: $spacer * 4,
+    18: $spacer * 4.5,
+    20: $spacer * 5,
+    24: $spacer * 6,
+    32: $spacer * 8,
 );
 
 // Card

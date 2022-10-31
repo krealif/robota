@@ -29,3 +29,10 @@ Route::get('/pricing', function () {
     return view('pricing');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
