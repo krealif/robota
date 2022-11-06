@@ -19,6 +19,19 @@ hr {
     max-width: 24px;
 }
 
+.accordion-button:focus {
+    z-index: unset;
+    border-color: unset;
+    outline: 1rem;
+    box-shadow: unset;
+}
+
+.img-full {
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { 
     .w-sm-auto {
