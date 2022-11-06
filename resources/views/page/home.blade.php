@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('page.layouts.base')
 
 @push('style')
 <style>
@@ -31,7 +31,7 @@ section {
     </div>
   </div>
 </section>
-@include('partials.clients')
+@include('page.partials.clients')
 <hr>
 <section class="container-xl py-12">
   <div class="row justify-content-center">
@@ -200,5 +200,5 @@ section {
     </div>
   </div>
 </section>
-@include('partials.testimonials')
+@include('page.partials.testimonials')
 @endsection

@@ -27,6 +27,6 @@ class Accordion extends Component
      */
     public function render()
     {
-        return view('components.accordion');
+        return view('page.components.accordion');
     }
 }

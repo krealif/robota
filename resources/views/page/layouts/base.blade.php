@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('partials.header')
+  @include('page.partials.head')
   @stack('style')
 </head>
 <body>
-  @include('partials.navbar')
+  @include('page.partials.navbar')
   @yield('content')
-  @include('partials.footer')
+  @include('page.partials.footer')
   @stack('script')
 </body>
 </html>

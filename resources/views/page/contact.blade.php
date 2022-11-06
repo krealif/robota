@@ -1,4 +1,4 @@
-@extends('layouts.base', ['title' => 'Contact'])
+@extends('page.layouts.base', ['title' => 'Contact'])
 
 @section('content')
 <section class="bg-secondary py-12">
@@ -76,6 +76,6 @@
   </div>
 </section>
 <hr>
-@include('partials.clients')
-@include('partials.testimonials')
+@include('page.partials.clients')
+@include('page.partials.testimonials')
 @endsection

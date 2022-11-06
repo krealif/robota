@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('partials.header', ['title' => 'Login'])
+  @include('page.partials.head', ['title' => 'Login'])
 </head>
 <body>
   <section class="container-fluid">
