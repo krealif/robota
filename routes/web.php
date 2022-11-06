@@ -31,7 +31,7 @@ Route::get('/login', function () {
 
 // CMS Auth
 Route::get('/cms/login', [LoginController::class, 'showLoginForm'])->name('cms.login');
-Route::post('/cms', [LoginController::class, 'login']);
+Route::post('/cms/login', [LoginController::class, 'login']);
 Route::post('/cms/logout', [LoginController::class, 'logout'])->name('cms.logout');
 Route::get('/cms/register', [RegisterController::class, 'showRegistrationForm'])->name('cms.register');
 Route::post('/cms/register', [RegisterController::class, 'register']);
