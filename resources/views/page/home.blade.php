@@ -1,6 +1,6 @@
 @extends('page.layouts.base')
 
-@push('style')
+@push('styles')
 <style>
 section {
   scroll-margin-top: 60px;

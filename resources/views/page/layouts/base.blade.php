@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   @include('page.partials.head')
-  @stack('style')
+  @stack('styles')
 </head>
 <body>
   @include('page.partials.navbar')
   @yield('content')
   @include('page.partials.footer')
-  @stack('script')
+  @stack('scripts')
 </body>
 </html>

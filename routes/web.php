@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +13,13 @@ use App\Http\Controllers\DashboardController;
 
 // Landing Page 
 
-Route::get('/', function () {
-    return view('page.home');
-});
-
+Route::get('/', [PageController::class, 'home']);
 Route::get('/about', function () {
     return view('page.about');
 });
-
 Route::get('/contact', function () {
     return view('page.contact');
 });
-
 Route::get('/login', function () {
     return view('page.login');
 });
@@ -37,5 +32,14 @@ Route::get('/cms/register', [RegisterController::class, 'showRegistrationForm'])
 Route::post('/cms/register', [RegisterController::class, 'register']);
 
 
-// CMS
-Route::get('/cms', [DashboardController::class, 'index']);
+// Dashboard
+Route::group(['middleware' => [
+    'auth',
+]], function () {
+    Route::get('/cms', function () {
+        return view('cms.home');
+    });
+    Route::get('/cms/client', function () {
+        return view('cms.client');
+    });
+});

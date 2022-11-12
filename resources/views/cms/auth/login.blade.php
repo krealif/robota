@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('cms.partials.head')
+  @include('cms.partials.head', ['title' => 'Login'])
 </head>
 <body>
 <body>
@@ -13,18 +13,14 @@
           <form method="POST" action="{{ route('cms.login') }}">
             @csrf
             <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
+              <label for="username" class="form-label required">Username</label>
                 <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="Enter your username">
-              @error('username')
-              <div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>
-              @enderror
+                @error('username')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
             </div>
             <div class="mb-2">
-              <label for="password" class="form-label">Password'</label>
+              <label for="password" class="form-label required">Password</label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Enter your password">
-              @error('password')
-              <div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>
-              @enderror
+              @error('password')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
             </div>
             <div class="form-footer">
               <button type="submit" class="btn btn-primary w-100">Sign in</button>
