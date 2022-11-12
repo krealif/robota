@@ -49,6 +49,7 @@ class ClientCrud extends Component
         $client = Client::find($id);
         $this->selected = $id;
         $this->name = $client->name;
+        $this->dispatchBrowserEvent('showModal', ['modal' => 'edit']);
     }
 
     public function update() {
@@ -91,6 +92,7 @@ class ClientCrud extends Component
 
     public function resetModal()
     {   
+        $this->reset();
         $this->resetErrorBag();
         $this->resetValidation();
     }

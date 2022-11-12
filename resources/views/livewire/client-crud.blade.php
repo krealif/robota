@@ -17,7 +17,7 @@
               <td><img src="{{ $client->getLogo() }}" height="48"></td>
               <td>
                 <div class="btn-list flex-nowrap">
-                  <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-edit" wire:click="edit({{ $client->id }})">
+                  <a href="#" class="btn" wire:loading.class="disabled" wire:click="edit({{ $client->id }})">
                     Edit
                   </a>
                   <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-delete" wire:click="selectItem({{ $client->id }})">
@@ -54,7 +54,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Add Client</button>
+          <button type="submit" class="btn btn-primary">
+            <span wire:loading wire:target="store" class="spinner-border spinner-border-sm me-2" role="status"></span>
+            Add Client
+          </button>
         </div>
       </div>
     </form>
@@ -81,7 +84,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Edit Client</button>
+          <button type="submit" class="btn btn-primary">
+            <span wire:loading wire:target="update" class="spinner-border spinner-border-sm me-2" role="status"></span>
+            Edit Client
+          </button>
         </div>
       </div>
     </form>
@@ -95,7 +101,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn me-auto" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" wire:click="destroy">Yes</button>
+          <button type="button" class="btn btn-danger" wire:click="destroy">
+            <span wire:loading wire:target="destroy" class="spinner-border spinner-border-sm me-2" role="status"></span>
+            Yes
+          </button>
         </div>
       </div>
     </div>
@@ -107,6 +116,11 @@
   window.addEventListener('closeModal', (event) => {
     let modalType = "modal-" + event.detail.modal
       bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).hide();
+  });
+
+  window.addEventListener('showModal', (event) => {
+    let modalType = "modal-" + event.detail.modal
+      bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).show();
   });
 
   document.querySelector('#modal-add').addEventListener('hidden.bs.modal', () => {
