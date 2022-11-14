@@ -17,12 +17,12 @@
               <td><img src="{{ $client->getLogo() }}" height="48"></td>
               <td>
                 <div class="btn-list flex-nowrap">
-                  <a href="#" class="btn" wire:loading.class="disabled" wire:click="edit({{ $client->id }})">
+                  <button class="btn" wire:loading.attr="disabled" wire:click="edit({{ $client->id }})">
                     Edit
-                  </a>
-                  <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-delete" wire:click="selectItem({{ $client->id }})">
+                  </button>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#modal-delete" wire:click="selectItem({{ $client->id }})">
                     Delete
-                  </a>
+                  </button>
                 </div>
               </td>
             </tr>
