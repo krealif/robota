@@ -54,6 +54,7 @@ class ClientCrud extends Component
 
     public function update() {
         $this->validateOnly('name');
+        
         $client = Client::find($this->selected);
         $client->update([
             'name' => $this->name,

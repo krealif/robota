@@ -41,45 +41,19 @@ section {
     </div>
   </div>
   <div class="row g-6 mt-6">
+    @foreach ($features->split(2) as $featureCol)
     <div class="col-md-6 d-flex flex-column gap-6">
+      @foreach ($featureCol as $feature)
       <div class="card bg-light">
         <div class="card-body p-6">
-          <img class="card-img" src="assets/images/site/feature1.png" alt="Card image cap">
-          <h3 class="fs-5 fw-bold mt-6">Informative dashoard</h3>
-          <p class="m-0 mt-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.”</p>
+          <img class="card-img" src="{{ $feature->getImage() }}" alt="{{ $feature->title }}">
+          <h3 class="fs-5 fw-bold mt-6">{{ $feature->title }}</h3>
+          <p class="m-0 mt-2">"{{ $feature->desc }}</p>
         </div>
       </div>
-      <div class="card bg-light">
-        <div class="card-body p-6">
-          <img class="card-img" src="assets/images/site/feature2.png" alt="Card image cap">
-          <h3 class="fs-5 fw-bold mt-6">Detailed report</h3>
-          <p class="m-0 mt-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.”</p>
-        </div>
-      </div>
-      <div class="card bg-light">
-        <div class="card-body p-6">
-          <img class="card-img" src="assets/images/site/feature3.png" alt="Card image cap">
-          <h3 class="fs-5 fw-bold mt-6">Rate shopper</h3>
-          <p class="m-0 mt-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.”</p>
-        </div>
-      </div>
+      @endforeach
     </div>
-    <div class="col-md-6 d-flex flex-column gap-6">
-      <div class="card bg-light">
-        <div class="card-body p-6">
-          <img class="card-img" src="assets/images/site/feature4.png" alt="Card image cap">
-          <h3 class="fs-5 fw-bold mt-6">Competitor comparison</h3>
-          <p class="m-0 mt-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.”</p>
-        </div>
-      </div>
-      <div class="card bg-light">
-        <div class="card-body p-6">
-          <img class="card-img" src="assets/images/site/feature5.png" alt="Card image cap">
-          <h3 class="fs-5 fw-bold mt-6">Review from various OTA</h3>
-          <p class="m-0 mt-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.”</p>
-        </div>
-      </div>
-    </div>
+    @endforeach
   </div>
 </section>
 <hr>

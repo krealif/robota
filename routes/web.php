@@ -42,4 +42,10 @@ Route::group(['middleware' => [
     Route::get('/cms/client', function () {
         return view('cms.client');
     });
+    Route::get('/cms/pricing', function () {
+        return view('cms.pricing');
+    });
+    Route::get('/cms/feature', function () {
+        return view('cms.feature');
+    });
 });
