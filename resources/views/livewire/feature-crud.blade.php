@@ -15,8 +15,8 @@
             @foreach ($dataFeature as $feature)
             <tr>
               <td>{{ $feature->title }}</td>
-              <td>{{ $feature->desc }}</td>
-              <td><img src="{{ $feature->getImage() }}" class="img-fluid"></td>
+              <td>{{ Str::limit($feature->desc, 100); }}</td>
+              <td><img src="{{ $feature->getImage() }}" width="240"></td>
               <td>
                 <div class="btn-list flex-nowrap">
                   <button class="btn" wire:loading.attr="disabled" wire:click="edit({{ $feature->id }})">
@@ -32,10 +32,13 @@
           </tbody>
         </table>
       </div>
+      <div class="card-footer">
+        {{ $dataFeature->links() }}
+      </div>
     </div>
   </div>
   <div wire:ignore.self id="modal-add" class="modal fade" tabindex="-1" aria-hidden="true">
-    <form class="modal-dialog modal-dialog-centered" wire:submit.prevent="store">
+    <form id="form-add" class="modal-dialog modal-dialog-centered" wire:submit.prevent="store">
       @csrf
       <div class="modal-content">
         <div class="modal-header">
@@ -50,7 +53,7 @@
           </div>
           <div class="mb-3">
             <label for="desc" class="form-label">Description</label>
-            <textarea id="desc" class="form-control @error('desc') is-invalid @enderror" wire:model.defer="desc" rows="4"></textarea>
+            <textarea id="desc" class="form-control @error('desc') is-invalid @enderror" wire:model.defer="desc" rows="5"></textarea>
             @error('desc')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
           </div>
           <div>
@@ -85,7 +88,7 @@
           </div>
           <div class="mb-3">
             <label for="desc" class="form-label">Description</label>
-            <textarea id="desc" class="form-control @error('desc') is-invalid @enderror" wire:model.defer="desc" rows="4"></textarea>
+            <textarea id="desc" class="form-control @error('desc') is-invalid @enderror" wire:model.defer="desc" rows="5"></textarea>
             @error('desc')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
           </div>
           <div>
@@ -125,22 +128,19 @@
 
 @push('scripts')
 <script>
-  window.addEventListener('closeModal', (event) => {
-    let modalType = "modal-" + event.detail.modal
-      bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).hide();
+  Livewire.on('closeModal', type => {
+    let modalType = "modal-" + type
+    bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).hide();
   });
 
-  window.addEventListener('showModal', (event) => {
-    let modalType = "modal-" + event.detail.modal
-      bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).show();
+  Livewire.on('showModal', type => {
+    let modalType = "modal-" + type
+    bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).show();
   });
 
-  document.querySelector('#modal-add').addEventListener('hidden.bs.modal', () => {
+  document.querySelector('#modal-add', '#modal-edit').addEventListener('hidden.bs.modal', () => {
     Livewire.emit('resetModal')
-  });
-
-  document.querySelector('#modal-edit').addEventListener('hidden.bs.modal', () => {
-    Livewire.emit('resetModal')
+    document.querySelector('#form-add').reset()
   });
 </script>
 @endpush

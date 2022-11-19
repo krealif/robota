@@ -4,22 +4,25 @@ namespace App\Http\Livewire;
 
 use App\Models\Client;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
 class ClientCrud extends Component
 {
     use WithFileUploads;
+    use WithPagination;
 
     public $logo, $name, $selected;
     protected $listeners = [
         'resetModal',
         'resetFilepond'
     ];
+    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
-        $dataClient = Client::all();
+        $dataClient = Client::paginate(5);
         return view('livewire.client-crud', compact('dataClient'));
     }
 
@@ -41,7 +44,7 @@ class ClientCrud extends Component
         ]);
 
         $this->reset();
-        $this->dispatchBrowserEvent('closeModal', ['modal' => 'add']);
+        $this->emit('closeModal', 'add');
         $this->resetFilepond();
     }
 
@@ -49,7 +52,7 @@ class ClientCrud extends Component
         $client = Client::find($id);
         $this->selected = $id;
         $this->name = $client->name;
-        $this->dispatchBrowserEvent('showModal', ['modal' => 'edit']);
+        $this->emit('showModal', 'edit');
     }
 
     public function update() {
@@ -74,7 +77,7 @@ class ClientCrud extends Component
         }
 
         $this->reset();
-        $this->dispatchBrowserEvent('closeModal', ['modal' => 'edit']);
+        $this->emit('closeModal', 'edit');
         $this->resetFilepond();
     }
 
@@ -82,7 +85,7 @@ class ClientCrud extends Component
     {
         $this->selected->delete();
         Storage::disk('img')->delete($this->selected->logo);
-        $this->dispatchBrowserEvent('closeModal', ['modal' => 'delete']);
+        $this->dispatchBrowserEvent('closeModal', 'delete');
     }
     
     public function selectItem($id)

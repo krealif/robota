@@ -13,11 +13,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-          <a href="." class="fs-2 fw-bold text-decoration-none">CMS</a>
+          <a href="./cms" class="fs-2 fw-bold text-decoration-none">CMS</a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
-          <div class="nav-item d-none d-md-flex me-3">
-          </div>
           <div class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link fw-semibold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               <span>{{ Auth::user()->username }}</span>
@@ -32,12 +30,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </header>
-    <div class="navbar-expand-md">
-      <div class="collapse navbar-collapse" id="navbar-menu">
-        <div class="navbar navbar-light">
-          <div class="container-xl">
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
             <ul class="navbar-nav">
               <li class="nav-item{{ request()->is('cms') ? ' active' : '' }}">
                 <a class="nav-link" href="/cms">
@@ -75,19 +69,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </header>
     <div class="page-wrapper">
-      <div class="page-header d-print-none">
-        <div class="container-xl">
-          @yield('header')
-        </div>
-      </div>
-      <!-- Page body -->
-      <div class="page-body">
-        <div class="container-xl">
-          @yield('body')
-        </div>
-      </div>
+      @yield('content')
     </div>
   </div>
 </body>

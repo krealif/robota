@@ -30,10 +30,13 @@
           </tbody>
         </table>
       </div>
+      <div class="card-footer">
+        {{ $dataClient->links() }}
+      </div>
     </div>
   </div>
   <div wire:ignore.self id="modal-add" class="modal fade" tabindex="-1" aria-hidden="true">
-    <form class="modal-dialog modal-dialog-centered" wire:submit.prevent="store">
+    <form id="form-add" class="modal-dialog modal-dialog-centered" wire:submit.prevent="store">
       @csrf
       <div class="modal-content">
         <div class="modal-header">
@@ -113,22 +116,32 @@
 
 @push('scripts')
 <script>
-  window.addEventListener('closeModal', (event) => {
-    let modalType = "modal-" + event.detail.modal
-      bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).hide();
+  Livewire.on('closeModal', type => {
+    let modalType = "modal-" + type
+    bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).hide();
   });
 
-  window.addEventListener('showModal', (event) => {
-    let modalType = "modal-" + event.detail.modal
-      bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).show();
+  Livewire.on('showModal', type => {
+    let modalType = "modal-" + type
+    bootstrap.Modal.getOrCreateInstance(document.getElementById(modalType)).show();
   });
 
   document.querySelector('#modal-add').addEventListener('hidden.bs.modal', () => {
     Livewire.emit('resetModal')
+    document.querySelector('#form-add').reset()
   });
 
   document.querySelector('#modal-edit').addEventListener('hidden.bs.modal', () => {
     Livewire.emit('resetModal')
+    document.querySelector('#form-add').reset()
   });
 </script>
+@endpush
+
+@push('styles')
+<style>
+  .pagination {
+    margin: 0;
+  }
+</style>
 @endpush

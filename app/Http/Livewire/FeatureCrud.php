@@ -4,22 +4,25 @@ namespace App\Http\Livewire;
 
 use App\Models\Feature;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
 class FeatureCrud extends Component
 {
     use WithFileUploads;
+    use WithPagination;
 
     public $title, $desc, $image, $selected;
     protected $listeners = [
         'resetModal',
         'resetFilepond'
     ];
+    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
-        $dataFeature = Feature::all();
+        $dataFeature = Feature::paginate(5);
         return view('livewire.feature-crud', compact('dataFeature'));
     }
 
@@ -43,7 +46,7 @@ class FeatureCrud extends Component
         ]);
 
         $this->reset();
-        $this->dispatchBrowserEvent('closeModal', ['modal' => 'add']);
+        $this->emit('closeModal', 'add');
         $this->resetFilepond();
     }
 
@@ -52,7 +55,7 @@ class FeatureCrud extends Component
         $this->selected = $id;
         $this->title = $feature->title;
         $this->desc = $feature->desc;
-        $this->dispatchBrowserEvent('showModal', ['modal' => 'edit']);
+        $this->emit('showModal', 'edit');
     }
 
     public function update() {
@@ -80,14 +83,14 @@ class FeatureCrud extends Component
 
         $this->reset();
         $this->resetFilepond();
-        $this->dispatchBrowserEvent('closeModal', ['modal' => 'edit']);
+        $this->emit('closeModal', 'edit');
     }
 
     public function destroy()
     {
         $this->selected->delete();
         Storage::disk('img')->delete($this->selected->image);
-        $this->dispatchBrowserEvent('closeModal', ['modal' => 'delete']);
+        $this->emit('closeModal', 'delete');
     }
 
     public function selectItem($id)
