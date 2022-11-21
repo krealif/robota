@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Feature;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -12,5 +11,17 @@ class PageController extends Controller
         $clients = Client::all();
         $features = Feature::all();
         return view('page.home', compact('clients', 'features'));
+    }
+    
+    public function about() {
+        return view('page.about');
+    }
+
+    public function contact() {
+        return view('page.contact');
+    }
+
+    public function login() {
+        return view('page.login');
     }
 }

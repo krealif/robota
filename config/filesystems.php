@@ -46,9 +46,15 @@ return [
 
         'img' => [
             'driver' => 'local',
-            'root' => storage_path('app/img'),
+            'root' => storage_path('app/public/img'),
             'url' => env('APP_URL').'/assets/img',
             'visibility' => 'public',
+        ],
+
+        'img-tmp' => [
+            'driver' => 'local',
+            'root' => storage_path('app/img-tmp'),
+            'visibility' => 'private',
         ],
 
         's3' => [
@@ -77,7 +83,7 @@ return [
     */
 
     'links' => [
-        public_path('assets/img') => storage_path('app/img'),
+        public_path('assets/img') => storage_path('app/public/img'),
     ],
 
 ];

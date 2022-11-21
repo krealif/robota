@@ -48,7 +48,7 @@ section {
         <div class="card-body p-6">
           <img class="card-img" src="{{ $feature->getImage() }}" alt="{{ $feature->title }}">
           <h3 class="fs-5 fw-bold mt-6">{{ $feature->title }}</h3>
-          <p class="m-0 mt-2">"{{ $feature->desc }}</p>
+          <p class="m-0 mt-2">{{ $feature->desc }}</p>
         </div>
       </div>
       @endforeach

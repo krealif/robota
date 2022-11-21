@@ -7,7 +7,7 @@
   <div class="row gap-6 mt-8 justify-content-center">
     @foreach ($clients as $client)
     <div class="col-lg-2 col-sm-3 col-4 px-2 text-center">
-      <img class="img-fluid" style="max-height: 2.5rem" src="{{ $client->getLogo() }}" alt="{{ $client->name }}">
+      <img class="img-fluid" style="max-height: 2.5rem" src="{{ $client->getImage() }}" alt="{{ $client->name }}">
     </div>
     @endforeach
   </div>

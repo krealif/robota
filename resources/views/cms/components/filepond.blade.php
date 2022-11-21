@@ -1,35 +1,9 @@
-<div
-  wire:ignore
-  x-data
-  x-init="() => {
-    let pond = FilePond.create($refs.input, {
-      acceptedFileTypes: ['image/*'],
-      imageValidateSizeMinWidth: 96,
-      imageValidateSizeMaxWidth: 1080,
-      imageValidateSizeMinHeight: 96,
-      imageValidateSizeMaxHeight: 1080,
-      maxFileSize: '500KB',
-    });
-    pond.setOptions({
-      server: {
-        process:(fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
-          @this.upload('{{ $attributes['wire:model'] }}', file, load, error, progress)
-        },
-        revert: (filename, load) => {
-          @this.removeUpload('{{ $attributes['wire:model'] }}', filename, load)
-        },
-      },
-    });
-    this.addEventListener('reset-filepond', e => {
-      pond.removeFiles({revert: true});
-    });
-  }"
->
-  <input type="file" x-ref="input" />
-</div>
+<input id="filepond" class="filepond" type="file" name="image">
 @once
 @push('styles')
 <link rel="stylesheet" href="/assets/cms/filepond.min.css">
+@endpush
+@push('scripts')
 <script src="/assets/cms/filepond-plugin-file-validate-type.js"></script>
 <script src="/assets/cms/filepond-plugin-file-validate-size.js"></script>
 <script src="/assets/cms/filepond-plugin-image-validate-size.js"></script>
@@ -38,6 +12,23 @@
   FilePond.registerPlugin(FilePondPluginImageValidateSize);
   FilePond.registerPlugin(FilePondPluginFileValidateType);
   FilePond.registerPlugin(FilePondPluginFileValidateSize);
+
+  let pond = FilePond.create(document.querySelector('#filepond'), {
+    acceptedFileTypes: ['image/*'],
+    imageValidateSizeMinWidth: 96,
+    imageValidateSizeMaxWidth: 1080,
+    imageValidateSizeMinHeight: 96,
+    imageValidateSizeMaxHeight: 1080,
+    maxFileSize: '500KB',
+  });
+  pond.setOptions({
+    server: {
+      url: '/api/upload',
+      headers: {
+        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+      }
+    },
+  });
 </script>
 @endpush
 @endonce

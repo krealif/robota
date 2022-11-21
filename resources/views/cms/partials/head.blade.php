@@ -5,4 +5,3 @@
 <title>{{ isset($title)? "$title - CMS" : "CMS" }}</title>
 <link rel="stylesheet" href="/assets/cms/tabler.min.css">
 <link rel="stylesheet" href="/assets/cms/tabler-vendors.min.css">
-<script src="https://unpkg.com/alpinejs" defer></script>

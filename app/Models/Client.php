@@ -12,11 +12,11 @@ class Client extends Model
 
     protected $table = 'client';
     protected $fillable = [
-        'logo',
         'name',
+        'image',
     ];
 
-    public function getLogo() {
-        return Storage::disk('img')->url($this->logo);
+    public function getImage() {
+        return Storage::disk('img')->url($this->image);
     }
 }
