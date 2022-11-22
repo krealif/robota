@@ -8,9 +8,11 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="d-flex flex-column justify-content-between vh-100">
-          <a class="py-4" href="/">
-            <img src="assets/images/site/robota-logo.svg" alt="Robota Logo" height="18">
-          </a>
+          <div class="d-inline-flex">
+            <a class="py-4" href="/">
+              <img src="assets/images/site/robota-logo.svg" alt="Robota Logo" height="18">
+            </a>
+          </div>
           <form class="container" style="max-width: 480px">
             <h1 class="fw-bold fs-3">Login</h1>
             <p class="text-muted mb-0">Please enter your details.</p>
