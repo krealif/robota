@@ -18,7 +18,8 @@ class PageController extends Controller
     }
 
     public function contact() {
-        return view('page.contact');
+        $clients = Client::all();
+        return view('page.contact', compact('clients'));
     }
 
     public function login() {
