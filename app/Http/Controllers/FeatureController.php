@@ -40,7 +40,7 @@ class FeatureController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string',
+            'title' => 'required|string|max:255',
             'desc' => 'required|string',
             'image' => 'required',
         ]);
@@ -89,7 +89,7 @@ class FeatureController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|string',
+            'title' => 'required|string|max:255',
             'desc' => 'required|string',
         ]);
 
