@@ -23,12 +23,22 @@ Route::controller(PageController::class)->group(function () {
 });
 
 // CMS Auth
-Route::get('/cms/login', [LoginController::class, 'showLoginForm'])->name('cms.login');
-Route::post('/cms/login', [LoginController::class, 'login']);
-Route::post('/cms/logout', [LoginController::class, 'logout'])->name('cms.logout');
-// Route::get('/cms/register', [RegisterController::class, 'showRegistrationForm'])->name('cms.register');
-// Route::post('/cms/register', [RegisterController::class, 'register']);
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/cms/login', 'showLoginForm')->name('cms.login');
+    Route::post('/cms/login', 'login');
+    Route::post('/cms/logout', 'logout')->name('cms.logout');
+});
 
+// Route::controller(RegisterController::class)->group(function () {
+//     Route::get('/cms/register', 'showRegistrationForm')->name('cms.register');
+//     Route::post('/cms/register', 'register');
+// });
+
+// Upload
+Route::controller(UploadController::class)->group(function () {
+    Route::post('/upload', 'store');
+    Route::delete('/upload', 'destroy');
+});
 
 // Dashboard
 Route::get('/cms', function () {
@@ -37,6 +47,3 @@ Route::get('/cms', function () {
 
 Route::resource('/cms/client', ClientController::class);
 Route::resource('/cms/feature', FeatureController::class);
-
-Route::post('/upload', [UploadController::class, 'store']);
-Route::delete('/upload', [UploadController::class, 'destroy']);
