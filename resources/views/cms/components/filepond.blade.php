@@ -16,14 +16,15 @@
   let pond = FilePond.create(document.querySelector('#filepond'), {
     acceptedFileTypes: ['image/*'],
     imageValidateSizeMinWidth: 96,
-    imageValidateSizeMaxWidth: 1080,
+    imageValidateSizeMaxWidth: 2048,
     imageValidateSizeMinHeight: 96,
-    imageValidateSizeMaxHeight: 1080,
-    maxFileSize: '500KB',
+    imageValidateSizeMaxHeight: 2048,
+    maxFileSize: '1MB',
   });
   pond.setOptions({
     server: {
-      url: '/api/upload',
+      url: '/upload',
+      timeout: 7000,
       headers: {
         'X-CSRF-TOKEN': '{{ csrf_token() }}'
       }
