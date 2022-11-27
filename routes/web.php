@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\ClientController;
+use App\Http\Controllers\Cms\PageController;
+use App\Http\Controllers\Cms\ClientController;
+use App\Http\Controllers\Cms\FeatureController;
 use App\Http\Controllers\UploadController;
-use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
