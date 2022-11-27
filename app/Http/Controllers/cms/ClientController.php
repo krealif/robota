@@ -18,7 +18,7 @@ class ClientController extends Controller
 
     public function index()
     {
-        $dataClient = Client::paginate(5);
+        $dataClient = Client::paginate(10);
         return view('cms.client.index', compact('dataClient'));
     }
 

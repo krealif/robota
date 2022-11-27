@@ -18,7 +18,7 @@ class FeatureController extends Controller
 
     public function index()
     {
-        $dataFeature = Feature::paginate(5);
+        $dataFeature = Feature::paginate(10);
         return view('cms.feature.index', compact('dataFeature'));
     }
 
