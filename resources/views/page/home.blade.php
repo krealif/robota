@@ -41,7 +41,7 @@ section {
     </div>
   </div>
   <div class="row g-6 mt-6">
-    @foreach ($features->split(2) as $featureCol)
+    @foreach ($dataFeature->split(2) as $featureCol)
     <div class="col-md-6 d-flex flex-column gap-6">
       @foreach ($featureCol as $feature)
       <div class="card bg-light">
@@ -64,23 +64,21 @@ section {
       <p class="text-muted mt-2 mb-0">Simple, transparent pricing that grows with you. Always know what you pay.</p>
     </div>
   </div>
-  <div class="row g-6 mt-6">
+  <div class="row g-6 mt-6 justify-content-center">
+    @foreach($dataPricing as $pricing)
     <div class="col-lg-4 col-sm-6 col-12">
-      <div class="card bg-light">
+      <div class="card{{ $pricing->recommended ? ' bg-light-primary':' bg-light' }}">
         <div class="card-body p-6">
           <div class="text-center">
-            <h3 class="fs-4 fw-semibold mb-0">Starter</h3>
-            <span class="fs-3 fw-semibold">$49/month</span>
+            <h3 class="fs-4 fw-semibold mb-0">{{ $pricing->name }}</h3>
+            <span class="fs-3 fw-semibold">{{ $pricing->price }}</span>
           </div>
           <hr class="my-4">
           <div>
             <ul class="list-unstyled">
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Access to all basic features</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Basic reporting and analytics</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Scheduled rate shops</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Free set-up</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Basic chat and email support</li>
-              <li></li>
+              @foreach (json_decode($pricing->list) as $item)
+              <li class="d-flex gap-2 p-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>{{ $item }}</li>
+              @endforeach
             </ul>
           </div>
           <hr class="my-4">
@@ -88,51 +86,7 @@ section {
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-sm-6 col-12">
-      <div class="card bg-light-primary">
-        <div class="card-body p-6">
-          <div class="text-center">
-            <h3 class="fs-4 fw-semibold mb-0">Business</h3>
-            <span class="fs-3 fw-semibold">$119/month</span>
-          </div>
-          <hr class="my-4">
-          <div>
-            <ul class="list-unstyled">
-              <li class="fw-semibold">Everything in Starter, plus</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Benchmark integration</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>OTB integration</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Meta sites and OTAs</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Live online support</li>
-            </ul>
-          </div>
-          <hr class="my-4 card-hr">
-          <a href="/contact" class="btn btn-primary w-100">Contact Us</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 col-12">
-      <div class="card bg-light">
-        <div class="card-body p-6">
-          <div class="text-center">
-            <h3 class="fs-4 fw-semibold mb-0">Enterprise</h3>
-            <span class="fs-3 fw-semibold">Custom Pricing</span>
-          </div>
-          <hr class="my-4">
-          <div>
-            <ul class="list-unstyled">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li class="fw-semibold">Everything  in Business, plus</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Enchanced security & SLA</li>
-              <li class="d-flex gap-2 py-1"><svg class="bi" style="bi" width="24" height="24"><use xlink:href="#check"></use></svg>Dedicated server & resources</li>
-            </ul>
-          </div>
-          <hr class="my-4">
-          <a href="/contact" class="btn btn-primary w-100">Contact Us</a>
-        </div>
-      </div>
-    </div>
+    @endforeach
   </div>
 </section>
 <hr>

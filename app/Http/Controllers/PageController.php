@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Feature;
+use App\Models\Pricing;
 
 class PageController extends Controller
 {
     public function home() {
-        $clients = Client::all();
-        $features = Feature::all();
-        return view('page.home', compact('clients', 'features'));
+        $dataClient = Client::all();
+        $dataFeature = Feature::all();
+        $dataPricing = Pricing::all();
+        return view('page.home', compact('dataClient', 'dataFeature', 'dataPricing'));
     }
     
     public function about() {
