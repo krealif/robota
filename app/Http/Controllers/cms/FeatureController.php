@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Cms;
 
-use App\Models\Client;
-use App\Utilities\Helper;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Feature;
+use App\Utilities\Helper;
 
-class ClientController extends Controller
+class FeatureController extends Controller
 {
 
     public function __construct()
@@ -17,8 +18,8 @@ class ClientController extends Controller
 
     public function index()
     {
-        $dataClient = Client::paginate(5);
-        return view('cms.client.index', compact('dataClient'));
+        $dataFeature = Feature::paginate(10);
+        return view('cms.feature.index', compact('dataFeature'));
     }
 
     /**
@@ -28,7 +29,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('cms.client.create');
+        return view('cms.feature.create');
     }
 
     /**
@@ -40,18 +41,20 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'desc' => 'required|string',
             'image' => 'required',
         ]);
 
-        $filename = Helper::storeImage('client', $request->image);
+        $filename = Helper::storeImage('feature', $request->image);
 
-        Client::create([
-            'name' => $request->name,
+        Feature::create([
+            'title' => $request->title,
+            'desc' => $request->desc,
             'image' => $filename,
         ]);
 
-        return redirect(route('client.index'))->with('success', 'Data added successfully');
+        return redirect(route('feature.index'))->with('success', 'Data added successfully');
     }
 
     /**
@@ -73,8 +76,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $client = Client::find($id);
-        return view('cms.client.update', compact('client'));
+        $feature = Feature::find($id);
+        return view('cms.feature.update', compact('feature'));
     }
 
     /**
@@ -87,23 +90,26 @@ class ClientController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'desc' => 'required|string',
         ]);
 
-        $client = Client::find($id);
-        $client->update([
-            'name' => $request->name
+        $feature = Feature::find($id);
+        $feature->update([
+            'title' => $request->title,
+            'desc' => $request->desc,
         ]);
 
         if ($request->filled('image')) {
-            $filename = Helper::storeImage('client', $request->image);
-            Storage::disk('img')->delete($client->image);
-            $client->update([
+            $filename = Helper::storeImage('feature', $request->image);
+            Storage::disk('img')->delete($feature->image);
+            $feature->update([
                 'image' => $filename
             ]);
         }
 
-        return redirect(route('client.index'))->with('success', 'Data updated successfully');
+        return redirect(route('feature.index'))->with('success', 'Data updated successfully');
+
     }
 
     /**
@@ -114,9 +120,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $client = Client::find($id);
-        $client->delete();
-        Storage::disk('img')->delete($client->image);
-        return redirect(route('client.index'))->with('success', 'Data deleted successfully');
+        $feature = Feature::find($id);
+        $feature->delete();
+        Storage::disk('img')->delete($feature->image);
+        return redirect(route('feature.index'))->with('success', 'Data deleted successfully');
     }
 }

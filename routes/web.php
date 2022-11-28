@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Cms\PageController;
+use App\Http\Controllers\Cms\ClientController;
+use App\Http\Controllers\Cms\FeatureController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\FeatureController;
-use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,22 @@ Route::controller(PageController::class)->group(function () {
 });
 
 // CMS Auth
-Route::get('/cms/login', [LoginController::class, 'showLoginForm'])->name('cms.login');
-Route::post('/cms/login', [LoginController::class, 'login']);
-Route::post('/cms/logout', [LoginController::class, 'logout'])->name('cms.logout');
-// Route::get('/cms/register', [RegisterController::class, 'showRegistrationForm'])->name('cms.register');
-// Route::post('/cms/register', [RegisterController::class, 'register']);
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/cms/login', 'showLoginForm')->name('cms.login');
+    Route::post('/cms/login', 'login');
+    Route::post('/cms/logout', 'logout')->name('cms.logout');
+});
 
+// Route::controller(RegisterController::class)->group(function () {
+//     Route::get('/cms/register', 'showRegistrationForm')->name('cms.register');
+//     Route::post('/cms/register', 'register');
+// });
+
+// Upload
+Route::controller(UploadController::class)->group(function () {
+    Route::post('/upload', 'store');
+    Route::delete('/upload', 'destroy');
+});
 
 // Dashboard
 Route::get('/cms', function () {
