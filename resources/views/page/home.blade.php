@@ -100,34 +100,16 @@
     </div>
   </div>
   <div class="row g-6 mt-6">
+    @foreach($dataFaq->split(2) as $faqCol)
     <div class="col-12 col-md-6 d-flex flex-column gap-6" data-aos="fade-up">
+      @foreach ($faqCol as $faq)
       <x-accordion
-        heading="Can I change my plan later?"
-        body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
+        :heading="$faq->question"
+        :body="$faq->answer">
       </x-accordion>
-      <x-accordion
-        heading="How does billing work?"
-        body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
-      </x-accordion>
-      <x-accordion
-        heading="Is my payment secure?"
-        body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
-      </x-accordion>
+      @endforeach
     </div>
-    <div class="col-12 col-md-6 d-flex flex-column gap-6" data-aos="fade-up">
-      <x-accordion
-        heading="Is there a free trial available?"
-        body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
-      </x-accordion>
-      <x-accordion
-        heading="How do I change my account email?"
-        body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
-      </x-accordion>
-      <x-accordion
-        heading="Can I upgrade to another pricing plan?"
-        body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
-      </x-accordion>
-    </div>
+    @endforeach
   </div>
 </section>
 @include('page.partials.testimonials')
