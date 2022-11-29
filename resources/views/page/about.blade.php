@@ -7,7 +7,7 @@
   </div>
 </section>
 <section class="container-xl py-12">
-  <div class="row g-6 g-md-10">
+  <div class="row g-6 g-md-10" data-aos="fade-up" data-aos-duration="1500">
     <div class="col-md-4">
       <img src="assets/images/site/about1.png" class="img-fluid rounded" alt="our mission">
     </div>
@@ -19,7 +19,7 @@
 </section>
 <hr>
 <section class="container-xl py-12">
-  <div class="row g-6 g-md-10">
+  <div class="row g-6 g-md-10" data-aos="fade-up" data-aos-duration="1000">
     <div class="col-md-4">
       <img src="assets/images/site/about2.png" class="img-fluid rounded mt-2 mt-md-0" alt="our mission">
     </div>

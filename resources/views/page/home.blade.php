@@ -1,11 +1,13 @@
 @extends('page.layouts.base')
 
 @push('styles')
-<style>
-section {
-  scroll-margin-top: 60px;
-}
-</style>
+  <style>
+  section {
+    scroll-margin-top: 60px;
+  }
+  </style>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -19,14 +21,14 @@ section {
     <div class="row justify-content-md-center">
       <div class="col-md-9 col-sm-11 text-md-center">
         <div class="mx-md-auto" style="max-width: 42rem">
-          <h1 class="fw-bold text-white display-4 mb-8">The best way to know your hotel's performance</h1>
+          <h1 class="fw-bold text-white display-4 mb-8" data-aos="fade-up" data-aos-duration="1500">The best way to know your hotel's performance</h1>
         </div>
-        <a href="#pricing" class="btn btn-primary btn-lg w-100 w-sm-auto">Get started</a>
+        <a href="#pricing" class="btn btn-primary btn-lg w-100 w-sm-auto" data-aos="fade-up" data-aos-duration="1500">Get started</a>
       </div>
     </div>
     <div class="row justify-content-center mt-10 mt-md-18">
       <div class="col-12">
-        <img src="assets/images/site/screenshoot.png" class="img-fluid" alt="">
+        <img src="assets/images/site/screenshoot.png" class="img-fluid" alt="" data-aos="fade-up" data-aos-duration="1500">
       </div>
     </div>
   </div>
@@ -34,13 +36,13 @@ section {
 @include('page.partials.clients')
 <hr>
 <section class="container-xl py-12">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" data-aos="fade-up">
     <div class="col-12 col-md-8 col-lg-6 text-md-center">
       <h2 class="fw-bold fs-3 m-0">Discover the app features</h2>
       <p class="text-muted mt-2 mb-0">Powerful, self-serve product and growth analytics to help you convert, engage, and retain more customers to visit your hotel.</p>
     </div>
   </div>
-  <div class="row g-6 mt-6">
+  <div class="row g-6 mt-6" data-aos="fade-up">
     @foreach ($dataFeature->split(2) as $featureCol)
     <div class="col-md-6 d-flex flex-column gap-6">
       @foreach ($featureCol as $feature)
@@ -58,7 +60,7 @@ section {
 </section>
 <hr>
 <section class="container-xl py-12" id="pricing">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" data-aos="fade-up">
     <div class="col-12 col-md-8 col-lg-6 text-md-center">
       <h2 class="fw-bold fs-3 m-0">Find a plan that's right for you</h2>
       <p class="text-muted mt-2 mb-0">Simple, transparent pricing that grows with you. Always know what you pay.</p>
@@ -66,7 +68,7 @@ section {
   </div>
   <div class="row g-6 mt-6 justify-content-center">
     @foreach($dataPricing as $pricing)
-    <div class="col-lg-4 col-sm-6 col-12">
+    <div class="col-lg-4 col-sm-6 col-12" data-aos="fade-up">
       <div class="card{{ $pricing->recommended ? ' bg-light-primary':' bg-light' }}">
         <div class="card-body p-6">
           <div class="text-center">
@@ -91,14 +93,14 @@ section {
 </section>
 <hr>
 <section class="container-xl py-12">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" data-aos="fade-up">
     <div class="col-12 col-md-8 col-lg-6 text-md-center">
       <h2 class="fw-bold fs-3 m-0">Frequently Asked Questions</h2>
       <p class="text-muted mt-2 mb-0">Everything you need to know about the product and billing.</p>
     </div>
   </div>
   <div class="row g-6 mt-6">
-    <div class="col-12 col-md-6 d-flex flex-column gap-6">
+    <div class="col-12 col-md-6 d-flex flex-column gap-6" data-aos="fade-up">
       <x-accordion
         heading="Can I change my plan later?"
         body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
@@ -112,7 +114,7 @@ section {
         body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
       </x-accordion>
     </div>
-    <div class="col-12 col-md-6 d-flex flex-column gap-6">
+    <div class="col-12 col-md-6 d-flex flex-column gap-6" data-aos="fade-up">
       <x-accordion
         heading="Is there a free trial available?"
         body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam a ipsa ipsum placeat obcaecati deleniti dolor esse eum ea molestias, atque ab architecto vel animi!">
@@ -130,3 +132,10 @@ section {
 </section>
 @include('page.partials.testimonials')
 @endsection
+
+@push('scripts')
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+@endpush
