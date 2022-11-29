@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Client;
 use App\Models\Feature;
 use App\Models\Pricing;
@@ -12,7 +13,8 @@ class PageController extends Controller
         $dataClient = Client::all();
         $dataFeature = Feature::all();
         $dataPricing = Pricing::all();
-        return view('page.home', compact('dataClient', 'dataFeature', 'dataPricing'));
+        $dataFaq = Faq::all();
+        return view('page.home', compact('dataClient', 'dataFeature', 'dataPricing', 'dataFaq'));
     }
     
     public function about() {
@@ -20,8 +22,8 @@ class PageController extends Controller
     }
 
     public function contact() {
-        $clients = Client::all();
-        return view('page.contact', compact('clients'));
+        $dataClient = Client::all();
+        return view('page.contact', compact('dataClient'));
     }
 
     public function login() {

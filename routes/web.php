@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UploadController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UploadController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Cms\ClientController;
 use App\Http\Controllers\Cms\FeatureController;
 use App\Http\Controllers\Cms\PricingController;
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Cms\FaqController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -49,3 +50,4 @@ Route::get('/cms', function () {
 Route::resource('/cms/client', ClientController::class);
 Route::resource('/cms/feature', FeatureController::class);
 Route::resource('/cms/pricing', PricingController::class);
+Route::resource('/cms/faq', FaqController::class);
