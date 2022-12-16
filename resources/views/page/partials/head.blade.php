@@ -4,4 +4,6 @@
 <link rel="preconnect" href="https://fontbit.io" crossorigin>
 <link rel="stylesheet" href="https://fontbit.io/css2?family=Roboto+Flex:wght@300;400;500;600;700;800;900&display=swap">
 <title>{{ isset($title)? "$title - Robota" : "Robota" }}</title>
-@vite(['resources/js/app.js'])
+{{-- @vite(['resources/js/app.js']) --}}
+<link rel="stylesheet" href="/assets/css/app.css">
+<script src="/assets/js/app.js"></script>

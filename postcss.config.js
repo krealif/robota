@@ -1,3 +1,9 @@
+const purgecss = require('@fullhuman/postcss-purgecss')
+
 module.exports = {
-    plugins: []
-}
+    plugins: [
+      purgecss({
+        content: ['resources/views/page/**/*.blade.php']
+      })
+    ]
+  }
