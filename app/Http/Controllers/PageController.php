@@ -45,10 +45,8 @@ class PageController extends Controller
             'companyName'=> 'required|string|max:255',
             'message'=> 'required|string',
         ]);
-
-        $subject = "Message from ".$request->email;
         
-        Mail::to('sales@robota.test')->send(new ContactMail($subject, $content));
+        Mail::to('sales@robota.test')->send(new ContactMail($content));
         return back()->with('success', 'Email is sent successfully.');
     }
 }

@@ -8,16 +8,16 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
 class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject, $content;
+    public $content;
 
-    public function __construct($subject, $content)
+    public function __construct($content)
     {
-        $this->subject = $subject;
         $this->content = $content;
     }
 
@@ -28,8 +28,10 @@ class ContactMail extends Mailable
      */
     public function envelope()
     {
+        $fullname =  $this->content['firstName']." ".$this->content['lastName'];
         return new Envelope(
-            subject: $this->subject,
+            from: new Address($this->content['email'], $fullname),
+            subject: "Message from ".$fullname
         );
     }
 
