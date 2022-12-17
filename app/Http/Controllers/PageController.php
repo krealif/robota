@@ -10,6 +10,7 @@ use App\Mail\ContactMail;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Rules\ValidHCaptcha;
 
 class PageController extends Controller
 {
@@ -44,6 +45,7 @@ class PageController extends Controller
             'phoneNumber' => 'required|string|max:20',
             'companyName'=> 'required|string|max:255',
             'message'=> 'required|string',
+            'h-captcha-response' => new ValidHCaptcha(),
         ]);
         
         Mail::to('sales@robota.test')->send(new ContactMail($content));

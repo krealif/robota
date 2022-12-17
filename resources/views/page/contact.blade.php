@@ -1,5 +1,9 @@
 @extends('page.layouts.base', ['title' => 'Contact'])
 
+@push('scripts')
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+@endpush
+
 @section('content')
 <section class="bg-secondary py-12">
   <div class="container-xl text-center">
@@ -86,7 +90,11 @@
           <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" rows="3" placeholder="Enter message">{{ old('message') }}</textarea>
           @error('message')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
         </div>
-        <button class="btn btn-primary mt-6" type="submit">Send Message</button>
+        <div class="mt-6">
+          <div class="h-captcha" data-sitekey="{{ config('services.h-captcha.sitekey') }}"></div>
+          @error('h-captcha-response')<div class="invalid-feedback" role="alert" style="display: block"><strong>{{ $message }}</strong></div>@enderror
+        </div>
+        <button class="btn btn-primary mt-4" type="submit">Send Message</button>
       </form>
     </div>
   </div>
