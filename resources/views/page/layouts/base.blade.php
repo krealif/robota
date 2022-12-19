@@ -3,7 +3,6 @@
 <head>
   @include('page.partials.head')
   @stack('styles')
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   @include('page.partials.navbar')
