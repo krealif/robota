@@ -12,7 +12,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-          <a href="./cms" class="fs-2 fw-bold text-decoration-none">CMS</a>
+          <a href="/cms" class="fs-2 fw-bold text-decoration-none">CMS</a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
           <div class="nav-item dropdown">
@@ -20,7 +20,7 @@
               <span>{{ Auth::user()->username }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-              <a class="dropdown-item" href="http://mybook.test/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Logout
               </a>
               <form id="logout-form" action="{{ route('cms.logout') }}" method="POST" class="d-none">
