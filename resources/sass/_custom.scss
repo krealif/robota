@@ -6,7 +6,7 @@ hr {
 }
 
 .bg-light-primary {
-    background-color: #FDF0E6;
+    background-color: #fdf0e6;
 }
 
 .bg-light-primary hr {
@@ -33,23 +33,37 @@ hr {
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
     .w-sm-auto {
-        width: auto!important;
+        width: auto !important;
     }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-    
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+}
 
+.hov {
+    background-image: linear-gradient(
+        transparent 0%,
+        transparent 90%,
+        #e86c00 90%,
+        #e86c00 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position-x: left;
+    transition: background-size 300ms;
+}
+.hov:hover {
+    background-position-x: left;
+    background-size: 100% 100%;
 }

@@ -1,5 +1,12 @@
 @extends('page.layouts.base', ['title' => 'Contact'])
 
+
+@push('styles')
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+@endpush
+
 @section('content')
 <section class="bg-secondary py-12">
   <div class="container-xl text-center">
@@ -79,3 +86,10 @@
 @include('page.partials.clients')
 @include('page.partials.testimonials')
 @endsection
+
+@push('scripts')
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+@endpush
