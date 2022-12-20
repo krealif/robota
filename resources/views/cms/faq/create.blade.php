@@ -12,15 +12,15 @@
           </div>
           <div class="card-body">
             <div class="mb-3">
-                <label for="question" class="form-label required">Question</label>
-                <input id="question" name="question" type="text" class="form-control @error('question') is-invalid @enderror" value="{{ old('question') }}">
-                @error('question')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
-              </div>
-              <div class="mb-3">
-                <label for="answer" class="form-label required">Answer</label>
-                <textarea id="answer" name="answer" class="form-control @error('answer') is-invalid @enderror" rows="5">{{ old('answer') }}</textarea>
-                @error('answer')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
-              </div>
+              <label for="question" class="form-label required">Question</label>
+              <input id="question" name="question" type="text" class="form-control @error('question') is-invalid @enderror" value="{{ old('question') }}">
+              @error('question')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
+            </div>
+            <div class="mb-3">
+              <label for="answer" class="form-label required">Answer</label>
+              <textarea id="answer" name="answer" class="form-control @error('answer') is-invalid @enderror" rows="5">{{ old('answer') }}</textarea>
+              @error('answer')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
+            </div>
           </div>
           <div class="card-footer">
             <button type="submit" class="btn btn-primary">Save</button>

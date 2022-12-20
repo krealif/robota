@@ -1,10 +1,15 @@
 @extends('page.layouts.base', ['title' => 'Contact'])
 
+<<<<<<< HEAD
 
 @push('styles')
 
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
+=======
+@push('scripts')
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+>>>>>>> 1ccae6b9921caa35565e4652b9fcfeb5c568b533
 @endpush
 
 @section('content')
@@ -13,7 +18,25 @@
     <h1 class="fw-bold text-white display-5">Contact Our Sales Team</h1>
   </div>
 </section>
-<section class="container-xl py-12">
+<section class="container-xl py-12" data-aos="fade-up">
+  @if($message = Session::get('success'))
+  <div class="alert alert-important alert-success alert-dismissible" role="alert" style="margin-top: -1.75rem">
+    <div class="d-flex gap-2 align-items-center">
+      <div><svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg></div>
+      <div>{{ $message }}</div>
+    </div>
+    <a class="btn-close btn-close" data-bs-dismiss="alert" aria-label="close"></a>
+  </div>
+  @endif
+  @if (count($errors) > 0)
+    <div class="alert alert-important alert-danger alert-dismissible" role="alert" style="margin-top: -1.75rem">
+      <div class="d-flex gap-2 align-items-center">
+        <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <circle cx="12" cy="12" r="9"></circle> <line x1="12" y1="8" x2="12" y2="12"></line> <line x1="12" y1="16" x2="12.01" y2="16"></line> </svg></div>
+        <div>Please check your entry and try again.</div>
+      </div>
+      <a class="btn-close btn-close" data-bs-dismiss="alert" aria-label="close"></a>
+    </div>
+  @endif
   <div class="row g-6 g-md-12">
     <div class="col-md-4">
       <div class="card bg-light">
@@ -50,40 +73,52 @@
       </div>
     </div>
     <div class="col-md-8">
-      <form>
+      <form method="POST" action="{{ route('contact.email') }}">
+        @csrf
         <div class="row">
           <div class="col-md-6 col-12">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firtsName"  placeholder="Enter your first name">
+            <input type="text" class="form-control @error('firstName') is-invalid @enderror" id="firstName" name="firstName" placeholder="Enter your first name" value="{{ old('firstName') }}" maxlength="255">
+            @error('firstName')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
           </div>
           <div class="col-md-6 col-12 mt-md-0 mt-4">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName"  placeholder="Enter your last name">
+            <input type="text" class="form-control @error('lastName') is-invalid @enderror" id="lastName" name="lastName" placeholder="Enter your last name" value="{{ old('lastName') }}" maxlength="255">
+            @error('lastName')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
           </div>
         </div>
         <div class="mt-4">
           <label for="email" class="form-label">Business Email Address</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your business email">
+          <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter your business email" value="{{ old('email') }}" maxlength="255">
+          @error('email')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
         </div>
         <div class="mt-4">
           <label for="phoneNumber" class="form-label">Phone Number</label>
-          <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+          <input type="text" class="form-control @error('phoneNumber') is-invalid @enderror" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" value="{{ old('phoneNumber') }}" maxlength="20">
+          @error('phoneNumber')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
         </div>
         <div class="mt-4">
           <label for="companyName" class="form-label">Company Name</label>
-          <input type="text" class="form-control" id="companyName" placeholder="Enter your company name">
+          <input type="text" class="form-control @error('companyName') is-invalid @enderror" id="companyName" name="companyName" placeholder="Enter your company name" value="{{ old('companyName') }}" maxlength="255">
+          @error('companyName')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
         </div>
         <div class="mt-4">
           <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" rows="3" placeholder="Enter message"></textarea>
+          <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" rows="3" placeholder="Enter message">{{ old('message') }}</textarea>
+          @error('message')<div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>@enderror
         </div>
-        <button class="btn btn-primary mt-6" type="button">Send Message</button>
+        <div class="mt-6">
+          <div class="h-captcha" data-sitekey="{{ config('services.h-captcha.sitekey') }}"></div>
+          @error('h-captcha-response')<div class="invalid-feedback" role="alert" style="display: block"><strong>{{ $message }}</strong></div>@enderror
+        </div>
+        <button class="btn btn-primary mt-4" type="submit">Send Message</button>
       </form>
     </div>
   </div>
 </section>
 <hr>
 @include('page.partials.clients')
+<<<<<<< HEAD
 @include('page.partials.testimonials')
 @endsection
 
@@ -93,3 +128,7 @@
     AOS.init();
   </script>
 @endpush
+=======
+@include('page.partials.testimonial')
+@endsection
+>>>>>>> 1ccae6b9921caa35565e4652b9fcfeb5c568b533

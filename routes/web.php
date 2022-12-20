@@ -8,6 +8,7 @@ use App\Http\Controllers\Cms\ClientController;
 use App\Http\Controllers\Cms\FeatureController;
 use App\Http\Controllers\Cms\PricingController;
 use App\Http\Controllers\Cms\FaqController;
+use App\Http\Controllers\Cms\TestimonialController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -21,6 +22,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/', 'home');
     Route::get('/about', 'about');
     Route::get('/contact', 'contact');
+    Route::post('/contact', 'sendEmail')->name('contact.email');
     Route::get('/login', 'login');
 });
 
@@ -51,3 +53,4 @@ Route::resource('/cms/client', ClientController::class);
 Route::resource('/cms/feature', FeatureController::class);
 Route::resource('/cms/pricing', PricingController::class);
 Route::resource('/cms/faq', FaqController::class);
+Route::resource('/cms/testimonial', TestimonialController::class);

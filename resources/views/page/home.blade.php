@@ -21,14 +21,14 @@
     <div class="row justify-content-md-center">
       <div class="col-md-9 col-sm-11 text-md-center">
         <div class="mx-md-auto" style="max-width: 42rem">
-          <h1 class="fw-bold text-white display-4 mb-8" data-aos="fade-up" data-aos-duration="1500">The best way to know your hotel's performance</h1>
+          <h1 class="fw-bold text-white display-4 mb-8" data-aos="fade-up">The best way to know your hotel's performance</h1>
         </div>
-        <a href="#pricing" class="btn btn-primary btn-lg w-100 w-sm-auto" data-aos="fade-up" data-aos-duration="1500">Get started</a>
+        <a href="#pricing" class="btn btn-primary btn-lg w-100 w-sm-auto" data-aos="fade-up">Get started</a>
       </div>
     </div>
     <div class="row justify-content-center mt-10 mt-md-18">
       <div class="col-12">
-        <img src="assets/images/site/screenshoot.png" class="img-fluid" alt="" data-aos="fade-up" data-aos-duration="1500">
+        <img src="assets/images/site/screenshoot.png" class="img-fluid" alt="" data-aos="fade-up">
       </div>
     </div>
   </div>
@@ -42,11 +42,11 @@
       <p class="text-muted mt-2 mb-0">Powerful, self-serve product and growth analytics to help you convert, engage, and retain more customers to visit your hotel.</p>
     </div>
   </div>
-  <div class="row g-6 mt-6" data-aos="fade-up">
+  <div class="row g-6 mt-6">
     @foreach ($dataFeature->split(2) as $featureCol)
     <div class="col-md-6 d-flex flex-column gap-6">
       @foreach ($featureCol as $feature)
-      <div class="card bg-light">
+      <div class="card bg-light" data-aos="fade-up">
         <div class="card-body p-6">
           <img class="card-img" src="{{ $feature->getImage() }}" alt="{{ $feature->title }}">
           <h3 class="fs-5 fw-bold mt-6">{{ $feature->title }}</h3>
@@ -68,8 +68,8 @@
   </div>
   <div class="row g-6 mt-6 justify-content-center">
     @foreach($dataPricing as $pricing)
-    <div class="col-lg-4 col-sm-6 col-12" data-aos="fade-up">
-      <div class="card{{ $pricing->recommended ? ' bg-light-primary':' bg-light' }}">
+    <div class="col-lg-4 col-sm-6 col-12">
+      <div class="card{{ $pricing->recommended ? ' bg-light-primary':' bg-light' }}" data-aos="fade-up">
         <div class="card-body p-6">
           <div class="text-center">
             <h3 class="fs-4 fw-semibold mb-0">{{ $pricing->name }}</h3>
@@ -112,7 +112,7 @@
     @endforeach
   </div>
 </section>
-@include('page.partials.testimonials')
+@include('page.partials.testimonial')
 @endsection
 
 @push('scripts')

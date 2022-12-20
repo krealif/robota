@@ -13,8 +13,8 @@
     <h1 class="fw-bold text-white display-5">About Us</h1>
   </div>
 </section>
-<section class="container-xl py-12">
-  <div class="row g-6 g-md-10" data-aos="fade-up" data-aos-duration="1500">
+<section class="container-xl py-12" data-aos="fade-up">
+  <div class="row g-6 g-md-10">
     <div class="col-md-4">
       <img src="assets/images/site/about1.png" class="img-fluid rounded" alt="our mission">
     </div>
@@ -25,8 +25,8 @@
   </div>
 </section>
 <hr>
-<section class="container-xl py-12">
-  <div class="row g-6 g-md-10" data-aos="fade-up" data-aos-duration="1000">
+<section class="container-xl py-12" data-aos="fade-up">
+  <div class="row g-6 g-md-10">
     <div class="col-md-4">
       <img src="assets/images/site/about2.png" class="img-fluid rounded mt-2 mt-md-0" alt="our mission">
     </div>

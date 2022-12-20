@@ -2,16 +2,19 @@
 @once
 @push('styles')
 <link rel="stylesheet" href="/assets/cms/filepond.min.css">
+<link rel="stylesheet" href="/assets/cms/filepond-plugin-image-preview.css">
 @endpush
 @push('scripts')
 <script src="/assets/cms/filepond-plugin-file-validate-type.js"></script>
 <script src="/assets/cms/filepond-plugin-file-validate-size.js"></script>
 <script src="/assets/cms/filepond-plugin-image-validate-size.js"></script>
+<script src="/assets/cms/filepond-plugin-image-preview.js"></script>
 <script src="/assets/cms/filepond.min.js"></script>
 <script>
   FilePond.registerPlugin(FilePondPluginImageValidateSize);
   FilePond.registerPlugin(FilePondPluginFileValidateType);
   FilePond.registerPlugin(FilePondPluginFileValidateSize);
+  FilePond.registerPlugin(FilePondPluginImagePreview);
 
   let pond = FilePond.create(document.querySelector('#filepond'), {
     acceptedFileTypes: ['image/*'],

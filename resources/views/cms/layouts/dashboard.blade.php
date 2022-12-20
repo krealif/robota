@@ -12,7 +12,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-          <a href="./cms" class="fs-2 fw-bold text-decoration-none">CMS</a>
+          <a href="/cms" class="fs-2 fw-bold text-decoration-none">CMS</a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
           <div class="nav-item dropdown">
@@ -20,7 +20,7 @@
               <span>{{ Auth::user()->username }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-              <a class="dropdown-item" href="http://mybook.test/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Logout
               </a>
               <form id="logout-form" action="{{ route('cms.logout') }}" method="POST" class="d-none">
@@ -70,6 +70,14 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-question" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <circle cx="10" cy="10" r="7"></circle> <path d="M21 21l-6 -6"></path> <line x1="10" y1="13" x2="10" y2="13.01"></line> <path d="M10 10a1.5 1.5 0 1 0 -1.14 -2.474"></path> </svg>
                   </span>
                   <span class="nav-link-title">FAQ</span>
+                </a>
+              </li>
+              <li class="nav-item {{ request()->is('cms/testimonial') || request()->is('cms/testimonial/*') ? ' active' : '' }}"">
+                <a class="nav-link" href="/cms/testimonial">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-blockquote" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M6 15h15"></path> <path d="M21 19h-15"></path> <path d="M15 11h6"></path> <path d="M21 7h-6"></path> <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path> <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path> </svg>
+                  </span>
+                  <span class="nav-link-title">Testimonial</span>
                 </a>
               </li>
             </ul>
